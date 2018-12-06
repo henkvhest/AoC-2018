@@ -1,19 +1,19 @@
 // open input.html and run the following in the console
 
 // part 1
-var inp = document.body.textContent.split('\n').map(item => Number(item)).reduce((total, amount) => total + amount);
-
+const inp = document.body.textContent.split('\n').map(item => Number(item)).reduce((total, amount) => total + amount);
+console.log(inp);
 // part 2
 
-var inp = document.body.textContent.split('\n').map(item => Number(item));
-var reachedFrequencies = [0];
+const inp = document.body.textContent.split('\n').filter(item => item !== "").map(Number);
+let reachedFrequencies = [];
+let duplicates = "";
+let currentFrequency = 0;
 
-var duplicates = "";
-var currentFrequency = 0;
 while (duplicates === "") {
   for (let i = 0; i < inp.length; i+=1) {
     currentFrequency += inp[i];
-    var checkIfcurrentFreqExists = reachedFrequencies.find(
+    const checkIfcurrentFreqExists = reachedFrequencies.find(
       freq => freq === currentFrequency
     );
     reachedFrequencies.push(currentFrequency);
